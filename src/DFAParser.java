@@ -1,3 +1,4 @@
+
 /**
  * @title  Deterministic Finite Automata parser.
  *
@@ -24,9 +25,13 @@ public class DFAParser {
         //
         //  Test cases for DFA.
         //
-        System.out.println(dfa.parseDFA("10")); //1->2->3, 3 is not final so false
-        System.out.println(dfa.parseDFA("10010"));//1->2->3->2->2->3 // false
-        System.out.println(dfa.parseDFA("001100"));//1-1-2-2-3-2//true
+        String test1 = "10";
+        String test2 = "10010";
+        String test3 = "001100";
+
+        System.out.println(DFAParser.wasStringAccepted(test1, dfa)); //1->2->3, 3 is not final so false
+        System.out.println(DFAParser.wasStringAccepted(test2, dfa));//1->2->3->2->2->3  // false
+        System.out.println(DFAParser.wasStringAccepted(test3, dfa));//1-1-2-2-3-2       // true
 
     }
 
@@ -95,5 +100,16 @@ public class DFAParser {
         }
 
         return dfa;
+    }
+
+    /**
+     * Return string representation/explanation of if the string was accepted by
+     * the DFA or not.
+     *
+     * @param str
+     * @return
+     */
+    private static String wasStringAccepted(String str, DFA dfa) {
+        return "The string " + str + " was " + (dfa.parseDFA(str) ? "" : "not ") + "accepted.";
     }
 }
