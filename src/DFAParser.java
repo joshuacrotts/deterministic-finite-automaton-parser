@@ -8,31 +8,29 @@
  *
  * @author Joshua Crotts
  */
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class DFAParser {
 
     private static BufferedReader reader;
+    private static Scanner keyboard;
 
     public static void main (String[] args) throws IOException {
 
+        DFAParser.keyboard = new Scanner(System.in);
+
         DFA dfa = DFAParser.initializeDFA("dfa.txt");
 
-        //
-        //  Test cases for DFA.
-        //
-        String test1 = "10";
-        String test2 = "10010";
-        String test3 = "001100";
+        System.out.println("Alphabet is: " + dfa.getAlphabet());
+        System.out.print("Enter String: ");
 
-        System.out.println(DFAParser.wasStringAccepted(test1, dfa)); //1->2->3, 3 is not final so false
-        System.out.println(DFAParser.wasStringAccepted(test2, dfa));//1->2->3->2->2->3  // false
-        System.out.println(DFAParser.wasStringAccepted(test3, dfa));//1-1-2-2-3-2       // true
+        String inputString = DFAParser.keyboard.nextLine();
 
+        System.out.println(DFAParser.wasStringAccepted(inputString, dfa));
     }
 
     /**
@@ -52,7 +50,8 @@ public class DFAParser {
         int numberOfStates = Utilities.intParseColon(DFAParser.reader.readLine());
 
         //  Read in alphabet
-        char[] alphabet = Utilities.splitAlphabetStr(DFAParser.reader.readLine());
+        inputBuffer = DFAParser.reader.readLine();
+        char[] alphabet = Utilities.splitAlphabetStr(inputBuffer.substring(inputBuffer.indexOf(":") + 1));
 
         //  Instantiate the DFA with the number of states, which creates
         //  n state objects, and the alphabet.
@@ -109,7 +108,7 @@ public class DFAParser {
      * @param str
      * @return
      */
-    private static String wasStringAccepted(String str, DFA dfa) {
+    private static String wasStringAccepted (String str, DFA dfa) {
         return "The string " + str + " was " + (dfa.parseDFA(str) ? "" : "not ") + "accepted.";
     }
 }

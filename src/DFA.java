@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -99,6 +100,10 @@ public class DFA {
 
     public State getState (int n) {
         return this.states.get(n - 1);
+    }
+
+    public String getAlphabet () {
+        return Arrays.toString(this.alphabet);
     }
 
     /**
