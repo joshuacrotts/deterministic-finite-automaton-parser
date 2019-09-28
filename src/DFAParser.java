@@ -14,6 +14,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Parses through a deterministic finite automata specified by the dfa text file.
+ * The user can use letters or numbers as symbols for the alphabet.
+ * @author Joshua
+ */
 public class DFAParser {
 
     private static BufferedReader reader;
@@ -23,7 +28,7 @@ public class DFAParser {
 
         DFAParser.keyboard = new Scanner(System.in);
 
-        DFA dfa = DFAParser.initializeDFA("dfa.txt");
+        DFA dfa = DFAParser.initializeDFA("dfa1.txt");
 
         System.out.println("Alphabet is: " + dfa.getAlphabet());
         System.out.print("Enter String: ");
@@ -103,12 +108,17 @@ public class DFAParser {
 
     /**
      * Return string representation/explanation of if the string was accepted by
-     * the DFA or not.
+     * the DFA or not. If the string is empty, it is concatenated as epsilon.
      *
      * @param str
      * @return
      */
     private static String wasStringAccepted (String str, DFA dfa) {
-        return "The string " + str + " was " + (dfa.parseDFA(str) ? "" : "not ") + "accepted.";
+        boolean accepted = dfa.parseDFA(str);
+
+        if (str.isEmpty()) {
+            str = "\u03B5";
+        }
+        return "The string " + str + " was " + (accepted ? "" : "not ") + "accepted.";
     }
 }

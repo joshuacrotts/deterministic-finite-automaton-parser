@@ -1,0 +1,10 @@
+Number of states: 2
+Alphabet: 0 1
+Transitions begin
+1 0 1
+1 1 2
+2 0 2
+2 1 1
+Transitions end
+Start state: 1
+Accept states: 1
