@@ -146,7 +146,7 @@ public class DFA {
      * @param s
      * @return
      */
-    private boolean hasValidSymbols (String s) {
+    public boolean hasValidSymbols (String s) {
         boolean hasValidChars;
 
         for (int i = 0 ; i < s.length() ; i++) {

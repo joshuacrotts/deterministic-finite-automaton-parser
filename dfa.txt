@@ -1,3 +1,6 @@
+%TEST
+%TEST
+%TEST
 Number of states: 3
 Alphabet: 0 1
 Transitions begin

@@ -15,8 +15,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * Parses through a deterministic finite automata specified by the dfa text file.
- * The user can use letters or numbers as symbols for the alphabet.
+ * Parses through a deterministic finite automata specified by the dfa text
+ * file. The user can use letters or numbers as symbols for the alphabet.
+ *
  * @author Joshua
  */
 public class DFAParser {
@@ -34,10 +35,10 @@ public class DFAParser {
         System.out.print("Enter String: ");
 
         String inputString = DFAParser.keyboard.nextLine();
-        
+
         //  If the user puts an invalid string (ie not in the alphabet,
         //  prompt them to change it).
-        while(!dfa.hasValidSymbols(inputString)) {
+        while (!dfa.hasValidSymbols(inputString)) {
             System.out.print(inputString + " is invalid; it has symbols not in the alphabet. Try again: ");
             inputString = DFAParser.keyboard.nextLine();
         }
@@ -58,8 +59,13 @@ public class DFAParser {
         DFAParser.reader = new BufferedReader(new FileReader(txtFile));
         String inputBuffer = "";
 
+        do {
+            inputBuffer = reader.readLine();
+        }
+        while (inputBuffer.contains("%"));
+
         //  Read in the number of states.
-        int numberOfStates = Utilities.intParseColon(DFAParser.reader.readLine());
+        int numberOfStates = Utilities.intParseColon(inputBuffer);
 
         //  Read in alphabet
         inputBuffer = DFAParser.reader.readLine();
