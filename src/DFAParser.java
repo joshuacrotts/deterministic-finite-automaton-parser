@@ -29,7 +29,7 @@ public class DFAParser {
 
         DFAParser.keyboard = new Scanner(System.in);
 
-        DFA dfa = DFAParser.initializeDFA("dfa1.txt");
+        DFA dfa = DFAParser.initializeDFA("dfa6.txt");
 
         System.out.println("Alphabet is: " + dfa.getAlphabet());
         System.out.print("Enter String: ");
