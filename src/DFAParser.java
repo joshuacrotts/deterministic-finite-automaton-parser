@@ -28,11 +28,10 @@ public class DFAParser {
     public static void main (String[] args) throws IOException {
 
         DFAParser.keyboard = new Scanner(System.in);
-
         DFA dfa = DFAParser.initializeDFA("dfa6.txt");
 
         System.out.println("Alphabet is: " + dfa.getAlphabet());
-        System.out.print("Enter String: ");
+        System.out.print("Enter string (or enter nothing for empty string): ");
 
         String inputString = DFAParser.keyboard.nextLine();
 
@@ -59,6 +58,9 @@ public class DFAParser {
         DFAParser.reader = new BufferedReader(new FileReader(txtFile));
         String inputBuffer = "";
 
+        //
+        //  Parse through comments (lines that begin with %)
+        //
         do {
             inputBuffer = reader.readLine();
         }
