@@ -34,6 +34,13 @@ public class DFAParser {
         System.out.print("Enter String: ");
 
         String inputString = DFAParser.keyboard.nextLine();
+        
+        //  If the user puts an invalid string (ie not in the alphabet,
+        //  prompt them to change it).
+        while(!dfa.hasValidSymbols(inputString)) {
+            System.out.print(inputString + " is invalid; it has symbols not in the alphabet. Try again: ");
+            inputString = DFAParser.keyboard.nextLine();
+        }
 
         System.out.println(DFAParser.wasStringAccepted(inputString, dfa));
     }
