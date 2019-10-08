@@ -1,10 +1,19 @@
+/**
+ * @title  Deterministic Finite Automata parser.
+ *
+ * @course CSC - 652 - Theory of Computation
+ *
+ * @date   UNCG Fall 2019
+ *
+ * @author Joshua Crotts
+ */
 
 import java.util.stream.Stream;
 
 /**
- * This class does some simple string-parsing for the input file so I can
- * avoid needless code complications in the main class.
- * 
+ * This class does some simple string-parsing for the input file so I can avoid
+ * needless code complications in the main class.
+ *
  * @author Joshua
  */
 public class Utilities {

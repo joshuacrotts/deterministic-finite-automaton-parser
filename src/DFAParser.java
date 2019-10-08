@@ -1,4 +1,3 @@
-
 /**
  * @title  Deterministic Finite Automata parser.
  *

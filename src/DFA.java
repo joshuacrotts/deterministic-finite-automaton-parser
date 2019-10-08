@@ -1,3 +1,12 @@
+/**
+ * @title  Deterministic Finite Automata parser.
+ *
+ * @course CSC - 652 - Theory of Computation
+ *
+ * @date   UNCG Fall 2019
+ *
+ * @author Joshua Crotts
+ */
 
 import java.util.ArrayList;
 import java.util.Arrays;
